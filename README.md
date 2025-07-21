@@ -1,20 +1,52 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# 🖼️ CPM - Pantalla de muestreo (REQ-16537)
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Este repositorio contiene la aplicación web desarrollada en React para la validación de muestras de estados de cuenta TDC. Forma parte del requerimiento REQ‑16537.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+---
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## 🛠️ Tecnologías
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- React 18 (con Vite)
+- Tailwind CSS
+- React Router DOM
+- **Atomic Design** como arquitectura de componentes
+
+---
+
+## 📁 Estructura del proyecto
+
+📦 frontend
+├── 📁 public
+├── 📁 src
+│   ├── 📁 assets
+│   ├── 📁 components
+│   │   ├── 📁 atoms         # Elementos básicos: Button, Input
+│   │   ├── 📁 molecules     # Combinaciones simples: InputGroup, StatusRow
+│   │   ├── 📁 organisms     # Secciones funcionales: TablaMuestras, ModalValidar
+│   │   ├── 📁 templates     # Layout base de pantalla
+│   │   └── 📁 pages         # Pantallas principales: Login, Validación, Resultado
+│   ├── 📁 services          # Conexiones con API REST
+│   ├── 📁 hooks             # Custom hooks (ej. useAuth, useFetch)
+│   ├── 📁 context           # Estado global compartido (opcional)
+│   ├── App.tsx
+│   └── main.tsx
+├── 📄 vite.config.ts
+└── 📄 package.json
+
+---
+
+## ✅ Funcionalidades clave
+
+- Login por Active Directory
+- Carga de layout de CIFs (`.xlsx`)
+- Visualización de tabla de validaciones por área
+- Captura de validación por usuario (nombre, área, fecha/hora)
+- Habilitación automática de botón de envío
+
+---
+
+## ▶️ Ejecución local
+
+```bash
+npm install
+npm run dev
