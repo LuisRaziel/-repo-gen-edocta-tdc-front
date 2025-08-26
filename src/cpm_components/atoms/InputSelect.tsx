@@ -29,9 +29,9 @@ const InputSelect = ({
     <Form.Group className="mb-3" controlId={controlId}>
         <Form.Label>{label}</Form.Label>
         <Form.Select aria-label="Default select example" required={required} onChange={onChange} name={name} value={value}>
-            <option value="">{placeholder}</option>
+            <option value="" key={""}>{placeholder}</option>
             {values.map((item) => {
-                return <option value={item.id}>{item.value}</option>
+                return <option value={item.id} key={item.id}>{item.value}</option>
             })}
         </Form.Select>
     </Form.Group>

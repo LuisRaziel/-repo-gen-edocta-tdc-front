@@ -51,6 +51,10 @@ import { RutaProtegida } from "cpm_components/components/RutaProtegida";
 import { useSession } from "hooks/useSession";
 
 
+// Vistas
+import GeneracionDeMuestra from "cpm_components/pages/generacion_muestra/GeneracionDeMuestra";
+
+
 const App = () => {
   const { esAutenticado } = useSession();
 
@@ -63,6 +67,7 @@ const App = () => {
         <Route element={<RutaProtegida />}>
           <Route element={<RootLayout></RootLayout>}>
             <Route path="/dashboard" id="dashboard" element={<Dashboard />}></Route>
+            <Route path="/gdm" id="gdm" element={<GeneracionDeMuestra></GeneracionDeMuestra>}></Route>
           </Route>
         </Route>
         <Route path="/unauthorized" element={<NotFound></NotFound>}></Route>

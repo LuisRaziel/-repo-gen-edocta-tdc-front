@@ -6,7 +6,7 @@ interface PrimaryButtonProps {
 }
 
 const PrimaryButton = ({ loading, text }: PrimaryButtonProps) => (
-    <Button variant="primary" type="submit" disabled={loading}>
+    <Button variant="primary" type="submit" disabled={loading}  >
         {loading ? (
             <>
                 <Spinner
