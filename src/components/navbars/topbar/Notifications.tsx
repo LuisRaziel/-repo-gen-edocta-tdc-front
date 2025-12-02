@@ -21,7 +21,7 @@ const Notifications = () => {
   return (
     <Fragment>
       {hasMounted && isDesktop ? (
-        <DesktopNotifications data={NotificationItems} />
+        <DesktopNotifications data={NotificationItems}/>
       ) : (
         <MobileNotifications data={NotificationItems} />
       )}

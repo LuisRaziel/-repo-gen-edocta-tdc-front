@@ -2,23 +2,30 @@
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route, Navigate } from "react-router-dom";
 
 //import routes files
-import AuthenticationLayout from "layouts/AuthenticationLayout";
+// import AuthenticationLayout from "layouts/AuthenticationLayout";
 import RootLayout from "layouts/RootLayout";
+/*
 import SignIn from "./pages/auth/SignIn";
 import ForgetPassword from "pages/auth/ForgetPassword";
 import SignUp from "./pages/auth/SignUp";
+*/
 import Dashboard from "pages/dashboard/Index";
+/*
 import Billing from "pages/dashboard/pages/Billing";
 import Pricing from "pages/dashboard/pages/Pricing";
 import Settings from "pages/dashboard/pages/Settings";
 import Profile from "pages/dashboard/pages/Profile";
+*/
 import NotFound from "pages/dashboard/pages/NotFound";
+/*
 import LayoutVertical from "pages/dashboard/LayoutVertical";
 import Documentation from "pages/dashboard/Documentation";
 import ChangeLog from "pages/dashboard/Changelog";
 import ApiDemo from "./pages/dashboard/pages/ApiDemo";
+*/
 
 // import bootstrap components
+/*
 import Accordion from "bootstrap-components/Accordions";
 import Alerts from "bootstrap-components/Alerts";
 import Badges from "bootstrap-components/Badges";
@@ -43,7 +50,7 @@ import Spinners from "bootstrap-components/Spinners";
 import Toasts from "bootstrap-components/Toasts";
 import Tooltips from "bootstrap-components/Tooltips";
 import Tables from "bootstrap-components/Tables";
-
+*/
 // Custom
 import Login from "cpm_components/pages/login/Login";
 import { RutaProtegida } from "cpm_components/components/RutaProtegida";
@@ -74,8 +81,8 @@ const App = () => {
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </>
     ))
-
-
+  
+    /*
   const router = createBrowserRouter([
     {
       id: "root",
@@ -189,6 +196,7 @@ const App = () => {
       ],
     },
   ]);
+  */
   return <RouterProvider router={rutas} />;
 };
 

@@ -8,11 +8,8 @@ interface RutaProtegidaProps {
 
 export const RutaProtegida = ({
     redirectTo = "/login",
-    children,
 }: RutaProtegidaProps) => {
     const { esAutenticado, loadingSesion } = useSession();
-
-    console.log(redirectTo, children, esAutenticado, loadingSesion)
 
     if (loadingSesion) {
         return <div>Cargando...</div>

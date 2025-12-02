@@ -1,15 +1,20 @@
-import { ItemsGeneracionDeMuestras } from "cpm_components/pages/generacion_muestra/GeneracionDeMuestra";
-import { Table } from "react-bootstrap"
-
+import { FuncionesProps } from "cpm_components/pages/generacion_muestra/GeneracionDeMuestra";
+import { Row, Table } from "react-bootstrap"
+import { v4 as uuid } from 'uuid'
+import { Muestra } from 'types/Muestra';
 
 
 interface GdMTableProps {
-    data: ItemsGeneracionDeMuestras[]|null,
-    events: any[],
+    data: Muestra[] | null,
+    events: FuncionesProps,
+    createRow: (validado: boolean, estatus: boolean, muestra: Muestra, idValidacion: number, fecha: string) => JSX.Element,
+    btnDescargar: (muestra: Muestra) => JSX.Element,
+    btnEnviarCorreo: (muestra: Muestra) => JSX.Element | null
+    setPagination: () => JSX.Element
 }
 
 
-const GdMTable = ({ data, events }: GdMTableProps) => {
+const GdMTable = ({ data, events, createRow, btnDescargar, btnEnviarCorreo, setPagination }: GdMTableProps) => {
     return <>
         <Table className="text-nowrap" responsive>
             <thead className="table-light">
@@ -30,23 +35,33 @@ const GdMTable = ({ data, events }: GdMTableProps) => {
             <tbody>
                 {
                     (data && data.length > 0) ?
-                        data.map(itemgdc => {
-                            return <tr>
-                                <td>{itemgdc.tipo}</td>
+                        data.map((itemgdc: Muestra) => {
+                            return <tr key={uuid()}>
+
+                                <td>{(itemgdc.tipoCuenta == 1) ? "Ordinario" : "Tarjeta de Crédito"}</td>
                                 <td>{itemgdc.periodo}</td>
-                                <td>{itemgdc.validadoImpuestos.toString()}</td>
+
+                                <td>{createRow(Boolean(itemgdc.validadoImpuestos), events.puedeValidar("Impuestos", itemgdc.validadoEstadoDeCuenta == 1), itemgdc, itemgdc.idImpuestos, itemgdc.impuestosFecha)}</td>
                                 <td>{itemgdc.validadorImpuestos}</td>
-                                <td>{itemgdc.validadoMercadotecnia.toString()}</td>
+
+                                <td>{createRow(Boolean(itemgdc.validadoMercadotecnia), events.puedeValidar("Mercadotecnia", itemgdc.validadoEstadoDeCuenta == 1), itemgdc, itemgdc.idMercadotecnia, itemgdc.mercadotecniaFecha)}</td>
                                 <td>{itemgdc.validadorMercadotecnia}</td>
-                                <td>{itemgdc.validadoEstadoDeCuenta.toString()}</td>
+
+                                <td>{createRow(Boolean(itemgdc.validadoEstadoDeCuenta), events.puedeValidar("Estado de Cuenta", itemgdc.validadoEstadoDeCuenta == 1), itemgdc, itemgdc.idEstadoDeCuenta, itemgdc.estadoDeCuentaFecha)}</td>
                                 <td>{itemgdc.validadorEstadoDeCuenta}</td>
-                                <td>{itemgdc.validadoTDC.toString()}</td>
+
+                                <td>{createRow(Boolean(itemgdc.validadoTDC), events.puedeValidar("Tarjeta de Credito", itemgdc.validadoEstadoDeCuenta == 1), itemgdc, itemgdc.idTDC, itemgdc.tdcFecha)}</td>
                                 <td>{itemgdc.validadorTDC}</td>
+                                <td>{btnDescargar(itemgdc)} {btnEnviarCorreo(itemgdc)}</td>
                             </tr>
                         }) : null
                 }
             </tbody>
         </Table>
+        <br></br>
+        <Row>
+            {setPagination()}
+        </Row>
     </>
 }
 

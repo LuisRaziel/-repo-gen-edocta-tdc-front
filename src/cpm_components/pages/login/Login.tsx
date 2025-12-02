@@ -6,7 +6,7 @@ import LoginCard from "../../organisms/LoginCard";
 import authService from "services/authService";
 
 import { useSession } from "hooks/useSession";
-import { Outlet, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 
 const Login = () => {
     const hasMounted = useMounted();
@@ -20,7 +20,7 @@ const Login = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
-    const {usuarioSesion, login, esAutenticado} = useSession();
+    const {login} = useSession();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -45,7 +45,6 @@ const Login = () => {
             var response = await authService.Login(usuario);
             if(response){
                 login(response)
-                console.log("Credenciales enviadas:", response, usuarioSesion, esAutenticado);
                 navigate("/dashboard");
             }
         } catch {

@@ -1,23 +1,26 @@
 // import node module libraries
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { Container, Col, Row } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 // import widget/custom components
-import { StatRightTopIcon } from "widgets";
+// import { StatRightTopIcon } from "widgets";
 
 // import sub components
-import { ActiveProjects, Teams, TasksPerformance } from "sub-components";
+// import { ActiveProjects, Teams, TasksPerformance } from "sub-components";
 
 // import required data files
-import ProjectsStatsData from "data/dashboard/ProjectsStatsData";
+// import ProjectsStatsData from "data/dashboard/ProjectsStatsData";
+
+
+import DashboardEDC from "cpm_components/pages/dashboard/Dashboard";
 
 const Dashboard = () => {
   return (
     <Fragment>
       <div className="bg-primary pt-10 pb-21"></div>
       <Container fluid className="mt-n22 px-6">
-        <Row>
+        {/* <Row>
           <Col lg={12} md={12} xs={12}>
             <div>
               <div className="d-flex justify-content-between align-items-center">
@@ -51,7 +54,8 @@ const Dashboard = () => {
           <Col xl={8} lg={12} md={12} xs={12}>
             <Teams />
           </Col>
-        </Row>
+        </Row> */}
+        <DashboardEDC></DashboardEDC>
       </Container>
     </Fragment>
   );

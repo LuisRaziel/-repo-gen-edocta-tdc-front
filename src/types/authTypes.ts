@@ -5,6 +5,8 @@ export interface Usuario {
     token: string,
     perfil: string,
     idPerfil: number,
+    area: string
+    idUsuario: string
 }
 
 export interface CredencialesLogin {

@@ -1,5 +1,5 @@
 import { useSession } from "hooks/useSession";
-import { Navigate, replace } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 interface RoleProtectedProps {
     allowedRoles: string[],

@@ -1,5 +1,5 @@
 {
-  "name": "dash-ui-react-vitejs-typescript",
+  "name": "estados-de-cuenta-cpm-web",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/react-bootstrap": "^0.32.37",
     "@types/react-router-dom": "^5.3.3",
+    "@types/xlsx": "^0.0.35",
     "apexcharts": "^3.54.1",
     "axios": "^1.11.0",
     "bootstrap": "^5.3.1",
@@ -30,7 +31,8 @@
     "react-syntax-highlighter": "^15.6.1",
     "simplebar-react": "^3.2.6",
     "sweetalert2": "^11.22.5",
-    "uuid": "^10.0.0"
+    "uuid": "^10.0.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

@@ -49,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showMenu, toggleMenu }) => {
       <SimpleBar style={{ maxHeight: "100vh" }}>
         <div className="nav-scroller">
           <Link to="/" className="navbar-brand">
-            <Image src="/images/brand/logo/logo.svg" alt="" />
+            <Image src="/images/cpm/logo-vector.png" alt="" />
           </Link>
         </div>
         {/* Dashboard Menu */}

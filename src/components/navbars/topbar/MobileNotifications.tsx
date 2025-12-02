@@ -3,6 +3,9 @@ import { ListGroup, Dropdown, Image } from "react-bootstrap";
 import { NotificationList } from "./NotificationList";
 import { NotificationProps } from "types";
 
+import { useSession } from "hooks/useSession";
+
+
 interface MobileNotificationProps {
   data: NotificationProps[];
 }
@@ -10,6 +13,12 @@ interface MobileNotificationProps {
 export const MobileNotifications: React.FC<MobileNotificationProps> = ({
   data,
 }) => {
+  const {usuarioSesion, logout} = useSession()
+  
+    const onClick = async ()=>{
+      logout()
+      location.reload()
+    } 
   return (
     <ListGroup
       as="ul"
@@ -61,7 +70,7 @@ export const MobileNotifications: React.FC<MobileNotificationProps> = ({
           <div className="avatar avatar-md avatar-indicators avatar-online">
             <Image
               alt="avatar"
-              src="/images/avatar/avatar-1.jpg"
+              src="/images/cpm/logo-vector.png"
               className="rounded-circle"
             />
           </div>
@@ -73,13 +82,14 @@ export const MobileNotifications: React.FC<MobileNotificationProps> = ({
         >
           <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=" ">
             <div className="lh-1 ">
-              <h5 className="mb-1"> John E. Grainger</h5>
+              <h5 className="mb-1"> {usuarioSesion?.nombre}</h5>
               <Link to="#" className="text-inherit fs-6">
-                View my profile
+               {usuarioSesion?.perfil}
               </Link>
             </div>
             <div className=" dropdown-divider mt-3 mb-2"></div>
           </Dropdown.Item>
+          {/*}
           <Dropdown.Item eventKey="2">
             <i className="fe fe-user me-2"></i> Edit Profile
           </Dropdown.Item>
@@ -91,9 +101,11 @@ export const MobileNotifications: React.FC<MobileNotificationProps> = ({
           </Dropdown.Item>
           <Dropdown.Item>
             <i className="fe fe-settings me-2"></i> Account Settings
-          </Dropdown.Item>
+          </Dropdown.Item>*/}
           <Dropdown.Item>
-            <i className="fe fe-power me-2"></i>Sign Out
+            <Link to="#" className="text-inherit fs-6" onClick={onClick}>
+               <i className="fe fe-power me-2"></i>Sign Out
+              </Link>
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

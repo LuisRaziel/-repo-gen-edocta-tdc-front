@@ -11,6 +11,7 @@ interface InputFieldProps {
     required?: boolean;
     accept?: string; // Para especificar tipos de archivos permitidos
     multiple?: boolean; // Para permitir múltiples archivos
+    disabled?: boolean
 }
 
 const InputField = ({
@@ -23,7 +24,9 @@ const InputField = ({
     controlId,
     required = true,
     accept,
-    multiple = false
+    multiple = false,
+    disabled = false
+
 }: InputFieldProps) => (
     <Form.Group className="mb-3" controlId={controlId}>
         <Form.Label>{label}</Form.Label>
@@ -36,6 +39,7 @@ const InputField = ({
             required={required}
             accept={type === "file" ? accept : undefined}
             multiple={type === "file" ? multiple : undefined}
+            disabled={disabled}
         />
     </Form.Group>
 );

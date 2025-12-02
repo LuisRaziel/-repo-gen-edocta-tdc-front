@@ -1,5 +1,3 @@
-import { ItemsGeneracionDeMuestras } from "cpm_components/pages/generacion_muestra/GeneracionDeMuestra"
-
 const Muestras = Array.from({ length: 30 }, (_, i) => {
   const meses = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
   const tipos = ["Combinado", "Tarjeta de Crédito"];
