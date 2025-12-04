@@ -36,5 +36,11 @@ export const DashboardMenu: DashboardMenuProps[] = [
     title: "Generación de Muestras",
     icon: "layers",
     link: "/gdm"
+  },
+  {
+    id: uuid(),
+    title: "Historico",
+    icon: "archive",
+    link: "/historico"
   }
 ];

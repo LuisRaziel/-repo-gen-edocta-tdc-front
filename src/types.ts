@@ -41,6 +41,7 @@ export interface TeamsDataProps {
 }
 
 export interface ActiveProjectsDataProps {
+  url: string,
   id: number;
   projectName: string;
   priority: string;

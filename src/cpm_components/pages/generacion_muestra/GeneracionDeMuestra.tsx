@@ -42,7 +42,7 @@ const GeneracionDeMuestra = () => {
     const [mesActual, setMesActual] = useState<string>("")
     const [paginaActual, setPaginaActual] = useState<number>(1);
     const [paginas, setPaginas] = useState<number>(0)
-    const [textoBtnDescargar, setTextoBtnDescargar]=  useState<string>("Descargar");
+    const [textoBtnDescargar, setTextoBtnDescargar] = useState<string>("Descargar");
     let token = "";
 
     // useEffect
@@ -80,9 +80,7 @@ const GeneracionDeMuestra = () => {
     }
 
     const obtenerMuestras = async (token: string, pagina: number) => {
-        console.log(pagina)
         GdMService.ObtenerMuestras(pagina, 10, token).then(response => {
-            console.log(response)
             setMuestras(response.datos)
             setPaginaActual(response.paginaActual)
             setPaginas(response.paginas)
@@ -277,6 +275,7 @@ const GeneracionDeMuestra = () => {
             const response = await axios.get(API_URL + 'Muestras/descargar', {
                 responseType: 'blob',
                 headers: {
+                    Authorization: "Bearer " + (tokenState),
                     Accept: 'application/zip',
                 },
             });
@@ -292,7 +291,8 @@ const GeneracionDeMuestra = () => {
             window.URL.revokeObjectURL(url);
         } catch (error) {
             console.error('Error al descargar el archivo:', error);
-        }finally{
+            Swal.fire("", "Ocurrio un error al descargar el archivo, intente mas tarde")
+        } finally {
             setTextoBtnDescargar("Descargar")
         }
     }
@@ -367,12 +367,12 @@ const GeneracionDeMuestra = () => {
         if (muestra.index === 0 && paginaActual === 1) {
             props = { onClick: handleDescargar, children: textoBtnDescargar };
         } else if (puedeEnviarCorreos(muestra)) {
-            props = { onClick: () => Swal.fire("Proximamente"), children: textoBtnDescargar+" P. Ant." };
+            props = { onClick: () => Swal.fire("Proximamente"), children: textoBtnDescargar + " P. Ant." };
         }
 
         return props ? (
-            <Button variant="secondary" size="sm" className="me-1" onClick={props.onClick} 
-            disabled={textoBtnDescargar!="Descargar"}>
+            <Button variant="secondary" size="sm" className="me-1" onClick={props.onClick}
+                disabled={textoBtnDescargar != "Descargar"}>
                 {props.children}
             </Button>
         ) : <></>;

@@ -9,6 +9,23 @@ const FuncioalidadesActivas: ActiveProjectsDataProps[] = [
   {
     id: 1,
     projectName: "Generación de Muestras",
+    url: "/gdm",
+    priority: "Medium",
+    priorityBadgeBg: "warning",
+    hours: 34,
+    progress: 15,
+    brandLogo: "/images/cpm/logo-vector.png",
+    brandLogoBg: "bg-white",
+    members: [
+      { image: "images/avatar/avatar-1.jpg" },
+      { image: "images/avatar/avatar-2.jpg" },
+      { image: "images/avatar/avatar-3.jpg" },
+    ],
+  },
+  {
+    id: 1,
+    url: "/historico",
+    projectName: "Consulta Historico",
     priority: "Medium",
     priorityBadgeBg: "warning",
     hours: 34,
@@ -52,7 +69,7 @@ const DashboardEDC = () => {
                         </div>
                         <div className="ms-3 lh-1">
                           <h5 className=" mb-1">
-                            <Link to="/gdm" className="text-inherit">
+                            <Link to={item.url} className="text-inherit">
                               {item.projectName}
                             </Link>
                           </h5>

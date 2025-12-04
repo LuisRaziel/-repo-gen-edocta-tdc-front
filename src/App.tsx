@@ -60,6 +60,7 @@ import { useSession } from "hooks/useSession";
 
 // Vistas
 import GeneracionDeMuestra from "cpm_components/pages/generacion_muestra/GeneracionDeMuestra";
+import EDCHistorico from "cpm_components/pages/edc_historico/EDCHistorico";
 
 
 const App = () => {
@@ -75,6 +76,7 @@ const App = () => {
           <Route element={<RootLayout></RootLayout>}>
             <Route path="/dashboard" id="dashboard" element={<Dashboard />}></Route>
             <Route path="/gdm" id="gdm" element={<GeneracionDeMuestra></GeneracionDeMuestra>}></Route>
+            <Route path="/historico" id="hitorico" element={<EDCHistorico></EDCHistorico>}></Route>
           </Route>
         </Route>
         <Route path="/unauthorized" element={<NotFound></NotFound>}></Route>
