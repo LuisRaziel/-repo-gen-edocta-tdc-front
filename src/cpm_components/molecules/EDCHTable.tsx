@@ -9,6 +9,27 @@ interface EDCHTableProp {
 }
 
 const EDCHTable = ({ data, btnDescargar, }: EDCHTableProp) => {
+
+    function formatoFechaAAAAMM(valor: number) {
+        // Convertir a string para manipular
+        const str = valor.toString();
+
+        // Extraer año y mes
+        const anio = str.slice(0, 4);
+        const mes = parseInt(str.slice(4, 6), 10);
+
+        // Lista de meses en español
+        const meses = [
+            "enero", "febrero", "marzo", "abril", "mayo", "junio",
+            "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+        ];
+
+        // Construir resultado
+        return `${meses[mes - 1]} de ${anio}`;
+    }
+
+    
+
     return <>
         <Table className="text-nowrap" responsive>
             <thead className="table-light">
@@ -31,9 +52,9 @@ const EDCHTable = ({ data, btnDescargar, }: EDCHTableProp) => {
                                 <td>{edc.cif}</td>
                                 <td>{edc.id}</td>
                                 <td>{edc.año_Periodo}</td>
-                                <td>{edc.periodo}</td>
-                                <td>{edc.tipo_Periodo=="M"?"Mensual":edc.tipo_Periodo=="B"?"Bimestral":""}</td>
-                                <td>{edc.fecha_Creacion.toString()}</td>
+                                <td>{(edc.periodo=="")?formatoFechaAAAAMM(edc.año_Periodo):edc.periodo}</td>
+                                <td>{edc.tipo_Periodo == "M" ? "Mensual" : edc.tipo_Periodo == "B" ? "Bimestral" : ""}</td>
+                                <td>{new Date(edc.fecha_Creacion).toLocaleString()}</td>
                             </tr>
                         }) : null
                 }

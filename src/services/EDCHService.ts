@@ -27,12 +27,14 @@ const EDCHService = {
             response = await apiService.post(`/EDCHistorico/descargar`,
                 {
                     cif: edc.cif,
-                    ids: [edc.id]
+                    ids: edc.id,
+                    año_periodo: edc.año_Periodo,
+                    ubicacion: edc.ubicacion
                 },
                 {
                     responseType: 'blob',
                     headers: {
-                        Accept: 'application/zip',
+                        Accept: 'application/pdf',
                         Authorization: "bearer " + token
                     },
                 });
@@ -48,7 +50,7 @@ const EDCHService = {
             window.URL.revokeObjectURL(url);
         } catch (error) {
             console.error("Error al descargar EDC:" + error, response?.status);
-            Swal.fire("","Ocurrio un error al descargar el archivo, intente mas tarde")
+            Swal.fire({title:"", text:"Ocurrio un error al descargar el archivo, intente mas tarde", icon:"error", confirmButtonColor:"#36784a"})
         }
     }
 }

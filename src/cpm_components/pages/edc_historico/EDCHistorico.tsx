@@ -46,7 +46,7 @@ const EDCHistorico = () => {
         }
         var resultado = await EDCHService.Consultar(cif, tokenState).then(r => r);
         if(resultado.length==0){
-            Swal.fire("","No se encontraron estados de cuenta", "info")
+            Swal.fire({title:"", text:"No se encontraron estados de cuenta", icon:"error", confirmButtonColor:"#36784a"})
         }
         setEDCS(resultado)
     }

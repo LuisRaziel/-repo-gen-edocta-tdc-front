@@ -1,6 +1,7 @@
 import { ActiveProjectsDataProps } from "types";
 
 export const ActiveProjectsData: ActiveProjectsDataProps[] = [
+  /*
   {
     id: 1,
     projectName: "Dropbox Design System",
@@ -91,5 +92,6 @@ export const ActiveProjectsData: ActiveProjectsDataProps[] = [
       { image: "images/avatar/avatar-18.jpg" },
     ],
   },
+  */
 ];
 export default ActiveProjectsData;
