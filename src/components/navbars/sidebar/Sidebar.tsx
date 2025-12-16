@@ -15,6 +15,9 @@ import SimpleBar from "simplebar-react";
 import { DashboardMenu } from "routes/DashboardRoutes";
 import { DashboardMenuProps } from "types";
 
+// 
+import  img from "../../../../public/images/cpm/logo-vector.png";
+
 interface SidebarProps {
   showMenu: boolean;
   toggleMenu: () => void;
@@ -49,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showMenu, toggleMenu }) => {
       <SimpleBar style={{ maxHeight: "100vh" }}>
         <div className="nav-scroller">
           <Link to="/" className="navbar-brand">
-            <Image src="/images/cpm/logo-vector.png" alt="" />
+            <Image src={img} alt="" />
           </Link>
         </div>
         {/* Dashboard Menu */}

@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { NotificationProps } from "types";
 import { NotificationList } from "./NotificationList";
 import { useSession } from "hooks/useSession";
+
+
+//
+import img from '../../../../public/images/cpm/logo-vector.png'
+
 interface DesktopNotificationProps {
   data: NotificationProps[];
 }
@@ -70,7 +75,7 @@ export const DesktopNotifications: React.FC<DesktopNotificationProps> = ({
           <div className="avatar avatar-md avatar-indicators avatar-online">
             <Image
               alt="avatar"
-              src="/images/cpm/logo-vector.png"
+              src={img}
               className="rounded-circle"
             />
           </div>

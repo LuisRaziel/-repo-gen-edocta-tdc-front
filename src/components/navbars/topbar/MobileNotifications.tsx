@@ -5,6 +5,9 @@ import { NotificationProps } from "types";
 
 import { useSession } from "hooks/useSession";
 
+// 
+import img from '../../../../public/images/cpm/logo-vector.png'
+
 
 interface MobileNotificationProps {
   data: NotificationProps[];
@@ -70,7 +73,7 @@ export const MobileNotifications: React.FC<MobileNotificationProps> = ({
           <div className="avatar avatar-md avatar-indicators avatar-online">
             <Image
               alt="avatar"
-              src="/images/cpm/logo-vector.png"
+              src={img}
               className="rounded-circle"
             />
           </div>

@@ -1,6 +1,7 @@
 // import node module libraries
 import { Link } from "react-router-dom";
 import { Col, Row, Card, Table, Image } from "react-bootstrap";
+import image from '../../../../public/images/cpm/logo-vector.png'
 
 // import required data files
 import { ActiveProjectsDataProps } from "types";
@@ -64,7 +65,7 @@ const DashboardEDC = () => {
                           <div
                             className={`icon-shape icon-md border p-4 rounded-1 ${item.brandLogoBg}`}
                           >
-                            <Image src={item.brandLogo} alt="" className="" height={'40px'}/>
+                            <Image src={image} alt="" className="" height={'40px'}/>
                           </div>
                         </div>
                         <div className="ms-3 lh-1">
