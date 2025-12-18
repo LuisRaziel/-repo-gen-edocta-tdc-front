@@ -107,7 +107,7 @@ export const MobileNotifications: React.FC<MobileNotificationProps> = ({
           </Dropdown.Item>*/}
           <Dropdown.Item>
             <Link to="#" className="text-inherit fs-6" onClick={onClick}>
-               <i className="fe fe-power me-2"></i>Sign Out
+               <i className="fe fe-power me-2"></i>cerrar Sesión
               </Link>
           </Dropdown.Item>
         </Dropdown.Menu>

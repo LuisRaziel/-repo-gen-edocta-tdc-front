@@ -329,7 +329,7 @@ const GeneracionDeMuestra = () => {
             if (result.isConfirmed) {
                 GdMService.ValidarMuestra(idValidacion, usuarioSesion?.idUsuario, tokenState)
                     .then((response: AxiosResponse<respuestaAxios>) => {
-                        console.log(response)
+                        //console.log(response)
                         if (response.status == 200 && response.data.mensaje == "") {
                             Swal.fire({
                                 title: "",

@@ -4,7 +4,6 @@ import { NotificationProps } from "types";
 import { NotificationList } from "./NotificationList";
 import { useSession } from "hooks/useSession";
 
-
 //
 import img from '../../../../public/images/cpm/logo-vector.png'
 
@@ -110,7 +109,7 @@ export const DesktopNotifications: React.FC<DesktopNotificationProps> = ({
           </Dropdown.Item>*/}
           <Dropdown.Item>
             <Link to="#" className="text-inherit fs-6" onClick={onClick}>
-               <i className="fe fe-power me-2"></i>Sign Out
+               <i className="fe fe-power me-2"></i>Cerrar Sesión
               </Link>
           </Dropdown.Item>
         </Dropdown.Menu>
