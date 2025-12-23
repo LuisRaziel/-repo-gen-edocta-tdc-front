@@ -82,5 +82,6 @@ El archivo `web.config` redirige todas las peticiones que no correspondan a arch
 ### Solución de problemas
 
 - **Error 404 al recargar:** Verifica que el módulo URL Rewrite esté instalado en IIS
+- **Error 500.19 (0x8007000d):** Si obtienes este error, verifica que el archivo web.config no tenga caracteres inválidos o secciones que conflictúen con la configuración del servidor IIS
 - **Rutas no funcionan:** Confirma que la aplicación está desplegada en el path `/CPM.AdmonEdoCtas/`
 - **Assets no cargan:** Revisa que todos los archivos de la carpeta `dist/` hayan sido copiados correctamente
